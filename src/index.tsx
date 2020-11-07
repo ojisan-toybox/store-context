@@ -1,4 +1,21 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-ReactDOM.render(<div>hello</div>, document.getElementById("root"));
+import { App } from "./app";
+
+type storeType = {
+  userNames: Array<string>;
+  count: number;
+};
+
+export const Context = React.createContext<storeType>({
+  userNames: [],
+  count: 0,
+});
+
+ReactDOM.render(
+  <Context.Provider value={{ userNames: [], count: 0 }}>
+    <App></App>
+  </Context.Provider>,
+  document.getElementById("root")
+);
