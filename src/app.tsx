@@ -20,6 +20,13 @@ export const App = () => {
   return (
     <StateContext.Provider value={state}>
       <AppChild></AppChild>
+      <button
+        onClick={() => {
+          setState({ ...state, count: state.count + 1 });
+        }}
+      >
+        count up
+      </button>
     </StateContext.Provider>
   );
 };
